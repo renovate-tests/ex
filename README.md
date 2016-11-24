@@ -2,6 +2,8 @@
 
 TODO: Add description
 
+[![Build Status](https://travis-ci.org/9renpoto/ex.svg?branch=master)](https://travis-ci.org/9renpoto/ex)
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish),
