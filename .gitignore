@@ -1,5 +1,21 @@
+### https://raw.github.com/github/gitignore/be962308a6efb6d27446d13ee05b74948e616a01/Elixir.gitignore
+
 /_build
 /cover
 /deps
 erl_crash.dump
 *.ez
+*.beam
+
+### https://raw.github.com/github/gitignore/be962308a6efb6d27446d13ee05b74948e616a01/Erlang.gitignore
+
+.eunit
+deps
+*.o
+*.beam
+*.plt
+erl_crash.dump
+ebin/*.beam
+rel/example_project
+.concrete/DEV_MODE
+.rebar
