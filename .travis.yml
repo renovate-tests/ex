@@ -19,8 +19,8 @@ matrix:
     - otp_release: 19.0
       elixir: 1.4.2
 script:
-- mix credo --strict
-- mix dialyzer --halt-exit-status
+# - mix credo --strict
+# - mix dialyzer --halt-exit-status
 - MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json
 after_success:
 - bash <(curl -s https://codecov.io/bash)

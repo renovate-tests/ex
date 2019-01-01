@@ -1,3 +1,5 @@
+tmp/
+
 ### https://raw.github.com/github/gitignore/18654b47c86bef38add5cd091ec2dac7d6e6e37b/Elixir.gitignore
 
 /_build
