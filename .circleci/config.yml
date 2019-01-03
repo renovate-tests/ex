@@ -15,11 +15,6 @@ jobs:
           name: sleep for waiting launch db
           command: sleep 1
       - run:
-          name: lint
-          command:
-            | docker-compose run web mix credo --strict
-            | docker-compose run web mix dialyzer --halt-exit-status
-      - run:
           name: test
           command: docker-compose run web mix test
       - run:

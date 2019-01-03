@@ -3,6 +3,7 @@
 TODO: Add description
 
 [![Build Status](https://travis-ci.org/9renpoto/ex.svg?branch=master)](https://travis-ci.org/9renpoto/ex)
+[![CircleCI](https://circleci.com/gh/9renpoto/ex/tree/master.svg?style=svg)](https://circleci.com/gh/9renpoto/ex/tree/master)
 
 ## Installation
 
