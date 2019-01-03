@@ -5,5 +5,5 @@ WORKDIR /myapp
 COPY mix.exs /myapp/mix.exs
 COPY mix.lock /myapp/mix.lock
 RUN mix local.hex --force
-RUN mix deps.get
+RUN mix local.rebar --force
 COPY . /myapp
