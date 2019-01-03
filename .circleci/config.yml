@@ -9,14 +9,14 @@ jobs:
           name: docker-compose build
           command: docker-compose build
       - run:
+          name: compile
+          command: docker-compose exec web mix do deps.get, deps.compile
+      - run:
           name: docker-compose up
           command: docker-compose up -d
       - run:
           name: sleep for waiting launch db
           command: sleep 1
-      - run:
-          name: compile
-          command: docker-compose exec web mix compile
       - run:
           name: create the database
           command: docker-compose exec web mix ecto.create
