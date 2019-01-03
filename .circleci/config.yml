@@ -15,8 +15,17 @@ jobs:
           name: sleep for waiting launch db
           command: sleep 1
       - run:
+          name: compile
+          command: docker-compose exec web mix compile
+      - run:
+          name: create the database
+          command: docker-compose exec web mix ecto.create
+      - run:
+          name: and migrate the database
+          command: docker-compose exec web mix ecto.migrate
+      - run:
           name: test
-          command: docker-compose run web mix test
+          command: docker-compose run --rm test mix test
       - run:
           name: docker-compose down
           command: docker-compose down
