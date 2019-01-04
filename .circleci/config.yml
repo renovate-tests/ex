@@ -9,8 +9,11 @@ jobs:
           name: docker-compose build
           command: docker-compose build
       - run:
-          name: compile
+          name: get
           command: docker-compose run web mix deps.get
+      - run:
+          name: compile
+          command: docker-compose run web mix deps.compile
       - run:
           name: docker-compose up
           command: docker-compose up -d
