@@ -10,7 +10,7 @@ jobs:
           command: docker-compose build
       - run:
           name: compile
-          command: docker-compose exec web mix do deps.get, deps.compile
+          command: docker-compose run web mix deps.get
       - run:
           name: docker-compose up
           command: docker-compose up -d
