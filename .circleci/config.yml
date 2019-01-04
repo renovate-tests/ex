@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    machine:
+      image: circleci/classic:edge
+    steps:
+      - checkout
+      - run:
+          name: docker-compose build
+          command: docker-compose build
+      - run:
+          name: compile
+          command: docker-compose exec web mix do deps.get, deps.compile
+      - run:
+          name: docker-compose up
+          command: docker-compose up -d
+      - run:
+          name: sleep for waiting launch db
+          command: sleep 1
+      - run:
+          name: create the database
+          command: docker-compose exec web mix ecto.create
+      - run:
+          name: and migrate the database
+          command: docker-compose exec web mix ecto.migrate
+      - run:
+          name: test
+          command: docker-compose run --rm test mix test
+      - run:
+          name: docker-compose down
+          command: docker-compose down

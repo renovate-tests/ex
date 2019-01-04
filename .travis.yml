@@ -1,26 +1,33 @@
 sudo: false
 language: elixir
+services:
+  - postgresql
+elixir:
+  - 1.4
+  - 1.5
+  - 1.6
+otp_release:
+  - 19.3
+  - 20.3
+  - 21.0
 matrix:
-  fast_finish: true
-  include:
-    - otp_release: 18.3
-      elixir: 1.3.2
-      script: mix test
-    - otp_release: 19.0
-      elixir: 1.3.2
-      script: mix test
-    - otp_release: 18.3
-      elixir: 1.4.2
-    - otp_release: 19.0
-      elixir: 1.4.2
-  allow_failures:
-    - otp_release: 18.3
-      elixir: 1.4.2
-    - otp_release: 19.0
-      elixir: 1.4.2
+  exclude:
+    - elixir: 1.5
+      otp_release: 21.0
+    - elixir: 1.4
+      otp_release: 21.0
+env:
+  global:
+    - ELIXIR_ASSERT_TIMEOUT=2000
+    - DB_ENV_POSTGRES_USER=postgres
+    - DB_ENV_POSTGRES_PASSWORD=postgres
+    - DB_ENV_POSTGRES_HOST=localhost
+  matrix:
+    - COWBOY_VERSION=1.0
+    - COWBOY_VERSION=2.0
 script:
-- mix credo --strict
-- mix dialyzer --halt-exit-status
+# - mix credo --strict
+# - mix dialyzer --halt-exit-status
 - MIX_ENV=test mix do compile --warnings-as-errors, coveralls.json
 after_success:
 - bash <(curl -s https://codecov.io/bash)
