@@ -15,8 +15,7 @@ config :web, WebWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "TStZ2vCnPBDbXmSGU7Ixu2k5uSW1KMyuRIAFQcjCMuMaYjW7u4NDeM/+l+6T8LKW",
   render_errors: [view: WebWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Web.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Web.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -25,4 +24,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
