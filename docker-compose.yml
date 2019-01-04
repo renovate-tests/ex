@@ -11,6 +11,10 @@ services:
   web:
     build: .
     command: mix phx.server
+    environment:
+      - DB_ENV_POSTGRES_USER=postgres
+      - DB_ENV_POSTGRES_PASSWORD=postgres
+      - DB_ENV_POSTGRES_HOST=localhost
     volumes:
       - .:/myapp
     ports:
