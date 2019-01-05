@@ -16,9 +16,7 @@ jobs:
       - run:
           name: create the database
           command: docker-compose exec web mix do ecto.create, ecto.migrate
-      - run:
-          name: test
-          command: docker-compose run --rm test mix test
+      - run: docker-compose run --rm -e "MIX_ENV=test" web mix test
       - run:
           name: docker-compose down
           command: docker-compose down
