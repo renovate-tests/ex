@@ -11,7 +11,7 @@ defmodule Web.Application do
       # Start the Ecto repository
       supervisor(Web.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(WebWeb.Endpoint, []),
+      supervisor(WebWeb.Endpoint, [])
       # Start your own worker by calling: Web.Worker.start_link(arg1, arg2, arg3)
       # worker(Web.Worker, [arg1, arg2, arg3]),
     ]

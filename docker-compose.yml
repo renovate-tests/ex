@@ -4,12 +4,10 @@ services:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST=web_test
   web:
     build: .
+    environment:
+      - DB_ENV_POSTGRES_HOST=db
     command: mix phx.server
     volumes:
       - .:/myapp
