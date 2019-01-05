@@ -6,6 +6,8 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
   web:
     build: .
+    environment:
+      - DB_ENV_POSTGRES_HOST=db
     command: mix phx.server
     volumes:
       - .:/myapp
