@@ -44,6 +44,7 @@ defmodule Web.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:plug_cowboy, "~> 1.0"},
+      {:ecto_sql, "~> 3.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"}
     ]
