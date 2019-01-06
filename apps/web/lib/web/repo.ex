@@ -1,5 +1,7 @@
 defmodule Web.Repo do
-  use Ecto.Repo, otp_app: :web
+  use Ecto.Repo,
+    otp_app: :web,
+    adapter: Ecto.Adapters.Postgres
 
   @doc """
   Dynamically loads the repository url from the
