@@ -1,4 +1,4 @@
-FROM elixir:1.8.0
+FROM elixir:1.8.1
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs inotify-tools postgresql-client yarn
 RUN mkdir /myapp
 WORKDIR /myapp
