@@ -7,16 +7,8 @@ jobs:
       - checkout
       - run: docker-compose build
       - run: docker-compose run web mix do deps.get, deps.compile
-      - run:
-          name: docker-compose up
-          command: docker-compose up -d
-      - run:
-          name: sleep for waiting launch db
-          command: sleep 1
-      - run:
-          name: create the database
-          command: docker-compose exec web mix do ecto.create, ecto.migrate
+      - run: docker-compose up -d
+      - run: sleep 1
+      - run: docker-compose exec web mix do ecto.create, ecto.migrate
       - run: docker-compose run --rm -e "MIX_ENV=test" web mix test
-      - run:
-          name: docker-compose down
-          command: docker-compose down
+      - run: docker-compose down
